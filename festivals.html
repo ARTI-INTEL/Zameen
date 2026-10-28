@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pakistani festivals: free-style mountain polo at Shandur, ancient Kalash ceremonies, national folk heritage at Lok Mela, and desert rallies." />
+  <title>Zameen</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/zameen-favicon.svg" />
+
+  <!-- W3.CSS Mandatory CSS Framework -->
+  <link rel="stylesheet" href="css/w3.css" />
+
+  <!-- Zameen Custom Design System -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Global Header & Navigation -->
+  <header class="site-header">
+    <div class="site-container">
+      <div class="site-nav-wrapper">
+        <a href="index.html" class="site-brand" aria-label="Zameen Homepage">
+          <img src="assets/images/zameen-logo.png" alt="Zameen" class="site-brand-logo" />
+        </a>
+
+        <nav aria-label="Primary Navigation">
+          <ul class="site-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="explore.html">Explore</a></li>
+            <li><a href="experiences.html">Experiences</a></li>
+            <li><a href="festivals.html" class="active">Festivals</a></li>
+            <li><a href="travel-guide.html">Travel Guide</a></li>
+          </ul>
+        </nav>
+
+        <div class="site-header-actions">
+          <form class="header-search-form" role="search" aria-label="Site search">
+            <input type="text" class="header-search-input" placeholder="Search festivals..." aria-label="Search destinations" />
+          </form>
+          <a href="explore.html" class="btn-nav-cta">Explore Destinations</a>
+        </div>
+
+        <button class="mobile-nav-toggle" aria-label="Open mobile menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-nav-drawer" aria-label="Mobile Navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="explore.html">Explore Destinations</a></li>
+        <li><a href="experiences.html">Experiences</a></li>
+        <li><a href="festivals.html">Festivals & Celebrations</a></li>
+        <li><a href="travel-guide.html">Travel Guide</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Header Section (Warm Sand) -->
+    <section class="section-padding section-sand" style="padding: 3rem 0;">
+      <div class="site-container">
+        <span class="hero-overline" style="color: var(--color-primary);">Living Traditions & Culture</span>
+        <h1 class="hero-title">Festivals & Celebrations</h1>
+        <p class="hero-subtitle">Experience the vibrant traditions, seasonal polo matches, and spiritual gatherings of Pakistan.</p>
+      </div>
+    </section>
+
+    <!-- Cultural Advisory & Verification Notice (Clay) -->
+    <section class="section-padding section-clay" style="padding: 2.5rem 0;">
+      <div class="site-container">
+        <div style="background-color: var(--color-surface); border: 1px solid var(--color-border-dark); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; display: flex; align-items: flex-start; gap: 1rem; color: var(--color-text);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--color-primary)" style="flex-shrink: 0; margin-top: 2px;">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+          </svg>
+          <div>
+            <strong style="color: var(--color-primary); font-size: 1rem;">Festival Date & Travel Verification Note:</strong>
+            <p style="font-size: 0.885rem; color: var(--color-text); margin: 0.35rem 0 0;">
+              Traditional and religious festivals in Pakistan often follow the Islamic lunar calendar or seasonal high-mountain pass clearances (such as Shandur Pass). Dates presented below indicate typical annual seasonal windows. Visitors are strongly advised to verify exact dates with provincial tourism departments (such as PTDC or TDCP) prior to booking travel.
+            </p>
+          </div>
+        </div>
+
+        <!-- Filter Controls -->
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; padding-bottom: 0.5rem;">
+          <div style="font-weight: 700; color: #FFFFFF; font-size: 1.05rem;">
+            Filter Festivals by Season:
+          </div>
+          <div class="view-switch-group" style="background: #FFFFFF;">
+            <button class="btn-view-switch active" data-festival-filter="all">All Seasons</button>
+            <button class="btn-view-switch" data-festival-filter="spring">Spring</button>
+            <button class="btn-view-switch" data-festival-filter="summer">Summer</button>
+            <button class="btn-view-switch" data-festival-filter="autumn">Autumn</button>
+            <button class="btn-view-switch" data-festival-filter="winter">Winter</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Festivals List (Warm Sand) -->
+    <section class="section-padding section-sand" style="padding: 3.5rem 0;">
+      <div class="site-container">
+        <div id="festivals-container">
+          <!-- Dynamically populated or rendered from FESTIVALS_DATA -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="site-container">
+      <div class="footer-grid">
+        <div>
+          <h3 class="footer-brand-title">Zameen</h3>
+          <p class="footer-desc">
+            An interactive multimedia tourism platform designed to showcase the rich cultural, historical, natural, and recreational heritage of Pakistan to the world.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer-heading">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="explore.html">Explore Destinations</a></li>
+            <li><a href="experiences.html">Tourism Experiences</a></li>
+            <li><a href="festivals.html">Festivals</a></li>
+            <li><a href="travel-guide.html">Travel Guide</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Official Tourism</h4>
+          <ul class="footer-links">
+            <li><a href="https://tourism.gov.pk" target="_blank" rel="noopener">Pakistan Tourism Development Corp (PTDC)</a></li>
+            <li><a href="https://visa.nadra.gov.pk" target="_blank" rel="noopener">NADRA Official e-Visa Portal</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">CSCU9X5 Project</h4>
+          <p style="font-size: 0.85rem; color: rgba(255,255,255,0.8);">
+            Festival dates distinguish recurring seasonal estimates from confirmed events, complying with the assignment criteria.
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 Zameen. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const container = document.getElementById("festivals-container");
+      const filterBtns = document.querySelectorAll("[data-festival-filter]");
+
+      function renderFestivals(seasonFilter = "all") {
+        if (!container) return;
+
+        const filtered = FESTIVALS_DATA.filter(f => seasonFilter === "all" || f.season === seasonFilter);
+
+        if (filtered.length === 0) {
+          container.innerHTML = `
+            <div class="empty-state">
+              <p>No festivals recorded for this specific season. Try selecting 'All Seasons'.</p>
+            </div>
+          `;
+          return;
+        }
+
+        container.innerHTML = filtered.map(fest => {
+          // Associated destinations links
+          const destLinks = fest.associatedDestinations.map(id => {
+            const d = Utils.getDestination(id);
+            if (!d) return "";
+            return `<button type="button" data-destination-placeholder class="btn btn-outline btn-sm" style="margin-right: 0.5rem; margin-top: 0.5rem;">Visit ${Utils.escapeHTML(d.name)} &rarr;</button>`;
+          }).join("");
+
+          return `
+            <article class="festival-card">
+              <div class="festival-media">
+                <img src="${fest.image}" alt="${Utils.escapeHTML(fest.name)}" loading="lazy" onerror="Utils.handleImageError(this, '${fest.name}')" />
+              </div>
+              <div class="festival-content">
+                <div>
+                  <span class="festival-timing-badge">${Utils.escapeHTML(fest.timing)}</span>
+                  <span style="font-size: 0.8rem; color: var(--color-accent); font-weight: 700; text-transform: uppercase; margin-left: 0.5rem;">
+                    [${Utils.escapeHTML(fest.dateStatus)}]
+                  </span>
+                </div>
+
+                <h2 style="font-size: 1.6rem; color: var(--color-primary); margin: 0.5rem 0 0.25rem;">${Utils.escapeHTML(fest.name)}</h2>
+                <div style="font-size: 0.9rem; color: var(--color-text-muted); font-weight: 600; margin-bottom: 1rem;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle;">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                  </svg>
+                  ${Utils.escapeHTML(fest.location)}
+                </div>
+
+                <p style="font-size: 0.95rem; line-height: 1.7; color: var(--color-text); margin-bottom: 1.25rem;">
+                  ${Utils.escapeHTML(fest.culturalSignificance)}
+                </p>
+
+                <div style="margin-top: auto; border-top: 1px solid var(--color-border); padding-top: 1rem;">
+                  <div style="font-size: 0.825rem; font-weight: 700; color: var(--color-primary); margin-bottom: 0.25rem;">
+                    Explore Associated Destinations:
+                  </div>
+                  <div style="display: flex; flex-wrap: wrap;">
+                    ${destLinks}
+                  </div>
+                </div>
+              </div>
+            </article>
+          `;
+        }).join("");
+      }
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          filterBtns.forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          renderFestivals(btn.dataset.festivalFilter);
+        });
+      });
+
+      renderFestivals("all");
+    });
+  </script>
+</body>
+</html>

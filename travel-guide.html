@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Practical Pakistan travel guide: visa information, transport options, cultural etiquette, altitude safety, and seasonal advice." />
+  <title>Zameen</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/zameen-favicon.svg" />
+
+  <!-- W3.CSS Mandatory CSS Framework -->
+  <link rel="stylesheet" href="css/w3.css" />
+
+  <!-- Zameen Custom Design System -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Global Header & Navigation -->
+  <header class="site-header">
+    <div class="site-container">
+      <div class="site-nav-wrapper">
+        <a href="index.html" class="site-brand" aria-label="Zameen Homepage">
+          <img src="assets/images/zameen-logo.png" alt="Zameen" class="site-brand-logo" />
+        </a>
+
+        <nav aria-label="Primary Navigation">
+          <ul class="site-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="explore.html">Explore</a></li>
+            <li><a href="experiences.html">Experiences</a></li>
+            <li><a href="festivals.html">Festivals</a></li>
+            <li><a href="travel-guide.html" class="active">Travel Guide</a></li>
+          </ul>
+        </nav>
+
+        <div class="site-header-actions">
+          <form class="header-search-form" role="search" aria-label="Site search">
+            <input type="text" class="header-search-input" placeholder="Search travel tips..." aria-label="Search destinations" />
+          </form>
+          <a href="explore.html" class="btn-nav-cta">Explore Destinations</a>
+        </div>
+
+        <button class="mobile-nav-toggle" aria-label="Open mobile menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-nav-drawer" aria-label="Mobile Navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="explore.html">Explore Destinations</a></li>
+        <li><a href="experiences.html">Experiences</a></li>
+        <li><a href="festivals.html">Festivals & Celebrations</a></li>
+        <li><a href="travel-guide.html">Travel Guide</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Header Section -->
+    <section class="section-padding" style="background-color: var(--color-background-sand); border-bottom: 2px solid var(--color-border-dark);">
+      <div class="site-container">
+        <span class="hero-overline" style="color: var(--color-primary);">Practical Preparation</span>
+        <h1 class="hero-title">Travel with Confidence</h1>
+        <p class="hero-subtitle">Clear guidance for local residents, overseas Pakistanis, and international travellers.</p>
+
+        <!-- Topic Search Input -->
+        <div style="max-width: 520px; margin-top: 1.5rem;">
+          <input type="text" id="guide-filter-input" class="form-input" placeholder="Filter guide topics (e.g. visa, flight, clothes, train)..." aria-label="Filter guide topics" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Travel Guide Topics Grid (6 Essential Topics matching Mockup) -->
+    <section class="section-padding">
+      <div class="site-container">
+        <div class="section-header">
+          <div>
+            <span class="hero-overline">Plan the Essentials</span>
+            <h2 class="section-title">Travel Guide Topics</h2>
+          </div>
+        </div>
+
+        <p id="travel-guide-location-status" class="section-subtitle" role="status" aria-live="polite" style="margin-bottom: 1rem;">Checking your location to tailor visa and flight information…</p>
+
+        <div class="guide-topic-grid" id="guide-topics-container">
+          <!-- 01 Travel Planning & Visas: shown to visitors outside Pakistan -->
+          <article class="guide-topic-card" data-topic="visa planning passport documents nadra" data-location-content="international">
+            <div class="guide-topic-icon">&#128706;</div>
+            <span style="font-size: 0.8rem; font-weight: 800; color: var(--color-accent); letter-spacing: 0.05em;">01 &bull; DOCUMENTATION</span>
+            <h3 style="font-size: 1.3rem; margin: 0.5rem 0; color: var(--color-primary);">Travel Planning & Official Visas</h3>
+            <p style="font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.6;">
+              Pakistan operates an official electronic visa (e-Visa) portal. Citizens of over 175 countries can apply online, and tourists from 126+ nations qualify for simplified e-visa processing. Overseas Pakistanis travelling on a NICOP / POC card do not require a separate visa.
+            </p>
+            <a href="https://visa.nadra.gov.pk" target="_blank" rel="noopener" class="btn btn-primary btn-sm" style="margin-top: 0.5rem;">
+              Official NADRA Visa Portal &rarr;
+            </a>
+          </article>
+
+          <!-- 02 Transportation -->
+          <article class="guide-topic-card" data-topic="transport flights train highway motorways bus">
+            <div class="guide-topic-icon">&#9992;</div>
+            <span style="font-size: 0.8rem; font-weight: 800; color: var(--color-accent); letter-spacing: 0.05em;">02 &bull; MOBILITY</span>
+            <h3 style="font-size: 1.3rem; margin: 0.5rem 0; color: var(--color-primary);">Transportation & Getting Around</h3>
+            <p style="font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.6;">
+              <span data-location-content="international">International flights connect through Pakistan's major airports, including Islamabad, Karachi, and Lahore; check directly with airlines for current schedules. Domestic flights connect major cities to mountain hubs (Gilgit, Skardu, Chitral, Gwadar).</span> Intercity travel is fast via the modern 6-lane National Motorway network (M-2, M-5). For northern valleys, hire licensed 4x4 vehicles for off-road passes.
+            </p>
+            <div style="font-size: 0.825rem; font-weight: 700; color: var(--color-primary); margin-top: 0.75rem;">
+              Key Routes: M-2 Lahore-Islamabad &bull; Karakoram Highway (N-35) &bull; Makran Coastal Highway (N-10)
+            </div>
+          </article>
+
+          <!-- 03 Accommodation -->
+          <article class="guide-topic-card" data-topic="accommodation hotel resort guest house camping">
+            <div class="guide-topic-icon">&#127960;</div>
+            <span style="font-size: 0.8rem; font-weight: 800; color: var(--color-accent); letter-spacing: 0.05em;">03 &bull; LODGING</span>
+            <h3 style="font-size: 1.3rem; margin: 0.5rem 0; color: var(--color-primary);">Accommodation & Stays</h3>
+            <p style="font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.6;">
+              Options range from 5-star international city hotels in Lahore, Islamabad, and Karachi to restored royal palace havelis (Shigar Fort, Khaplu Palace), modern alpine glamping pods at Attabad Lake, and warm family-run valley homestays.
+            </p>
+            <div style="font-size: 0.825rem; font-weight: 700; color: var(--color-primary); margin-top: 0.75rem;">
+              Tip: Book high-season northern accommodation (June–August) well in advance.
+            </div>
+          </article>
+
+          <!-- 04 Local Customs -->
+          <article class="guide-topic-card" data-topic="customs etiquette clothes dress culture modesty">
+            <div class="guide-topic-icon">&#129309;</div>
+            <span style="font-size: 0.8rem; font-weight: 800; color: var(--color-accent); letter-spacing: 0.05em;">04 &bull; ETIQUETTE</span>
+            <h3 style="font-size: 1.3rem; margin: 0.5rem 0; color: var(--color-primary);">Local Customs & Etiquette</h3>
+            <p style="font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.6;">
+              Pakistani culture is famed for legendary warmth and hospitality towards guests. Modest dress covering shoulders and knees is recommended. When entering mosques or Sufi shrines, shoes must be removed, and women should drape a light scarf over their heads.
+            </p>
+            <div style="font-size: 0.825rem; font-weight: 700; color: var(--color-primary); margin-top: 0.75rem;">
+              Always request permission before photographing local individuals, particularly in rural villages.
+            </div>
+          </article>
+
+          <!-- 05 Safety & High Altitude -->
+          <article class="guide-topic-card" data-topic="safety altitude health sickness water mountain">
+            <div class="guide-topic-icon">&#127957;</div>
+            <span style="font-size: 0.8rem; font-weight: 800; color: var(--color-accent); letter-spacing: 0.05em;">05 &bull; HEALTH & SAFETY</span>
+            <h3 style="font-size: 1.3rem; margin: 0.5rem 0; color: var(--color-primary);">Safety & High-Altitude Guidance</h3>
+            <p style="font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.6;">
+              When travelling to elevations over 2,500m (Hunza, Skardu, Deosai), allow at least 24 hours to acclimatise before strenuous treks. Drink plenty of water to prevent Acute Mountain Sickness (AMS). Drink bottled or filtered water, and pack comprehensive travel medical insurance.
+            </p>
+            <div style="font-size: 0.825rem; font-weight: 700; color: var(--color-primary); margin-top: 0.75rem;">
+              Emergency Contact: Tourist Police Help & Emergency 15 &bull; Rescue 1122
+            </div>
+          </article>
+
+          <!-- 06 Seasonal Recommendations -->
+          <article class="guide-topic-card" data-topic="season packing clothes weather winter summer">
+            <div class="guide-topic-icon">&#127777;</div>
+            <span style="font-size: 0.8rem; font-weight: 800; color: var(--color-accent); letter-spacing: 0.05em;">06 &bull; CLIMATE</span>
+            <h3 style="font-size: 1.3rem; margin: 0.5rem 0; color: var(--color-primary);">Seasonal Packing & Considerations</h3>
+            <p style="font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.6;">
+              Pakistan's seasons vary dramatically by altitude: summers in the southern plains (Sindh and Punjab) are hot, making northern valleys the natural haven. Conversely, winters are ideal for heritage exploration in Lahore, Multan, and Mohenjo-daro, or coastal drives along the Makran Coast.
+            </p>
+            <div style="font-size: 0.825rem; font-weight: 700; color: var(--color-primary); margin-top: 0.75rem;">
+              Layering: High mountain nights can freeze even in mid-July. Always pack windproof jackets.
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- "Build a Starting Point" (Interactive Wizard Matching Mockup) -->
+    <section class="section-padding section-sand">
+      <div class="site-container">
+        <div style="background-color: var(--ase-navy); color: #FFFFFF; border-radius: var(--radius-md); padding: 2.5rem; box-shadow: var(--shadow-lg);">
+          <div style="max-width: 600px; margin-bottom: 2rem;">
+            <span style="font-size: 0.85rem; font-weight: 700; color: var(--ase-sand); text-transform: uppercase; letter-spacing: 0.1em;">Tailored Itinerary</span>
+            <h2 style="color: #FFFFFF; font-size: 2rem; margin-top: 0.25rem;">Build a Starting Point</h2>
+            <p style="color: rgba(255,255,255,0.85); font-size: 1rem;">
+              Tell us your general region and style of travel to generate an immediate suggested route.
+            </p>
+          </div>
+
+          <form id="wizard-form" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) auto; gap: 1rem; align-items: end;">
+            <div class="form-group">
+              <label for="wizard-region" style="color: var(--ase-sand); font-size: 0.825rem; font-weight: 700; text-transform: uppercase;">Where do you want to start?</label>
+              <select id="wizard-region" class="form-select" style="background: #fff; color: #000;">
+                <option value="gilgit-baltistan">Gilgit-Baltistan (Northern Mountains)</option>
+                <option value="punjab">Punjab (Imperial Lahore & Multan)</option>
+                <option value="khyber-pakhtunkhwa">KPK (Swat Valley & Gandhara)</option>
+                <option value="sindh">Sindh (Ancient Mohenjo-daro)</option>
+                <option value="balochistan">Balochistan (Makran Coast)</option>
+                <option value="islamabad">Islamabad Capital</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="wizard-exp" style="color: var(--ase-sand); font-size: 0.825rem; font-weight: 700; text-transform: uppercase;">What is your travel priority?</label>
+              <select id="wizard-exp" class="form-select" style="background: #fff; color: #000;">
+                <option value="cultural">Culture & World Heritage</option>
+                <option value="nature">Scenic Nature & Wildlife</option>
+                <option value="adventure">Trekking & Outdoor Adventure</option>
+                <option value="recreational">Lakes & Restorative Holidays</option>
+              </select>
+            </div>
+
+            <div>
+              <button type="submit" class="btn btn-clay btn-block" style="height: 44px; color: #fff !important;">
+                Show Recommendations &rarr;
+              </button>
+            </div>
+          </form>
+
+          <!-- Dynamic Wizard Result Box -->
+          <div id="wizard-result" style="display: none; margin-top: 2rem; padding: 1.5rem; background: rgba(255,255,255,0.1); border-radius: var(--radius-sm); border: 1px solid rgba(224,188,136,0.3);">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Questions Before You Travel (Accessible FAQ Accordions) -->
+    <section class="section-padding">
+      <div class="site-container">
+        <div class="section-header">
+          <div>
+            <span class="hero-overline">Frequently Asked Questions</span>
+            <h2 class="section-title">Questions Before You Travel</h2>
+            <p class="section-subtitle">Practical clarifications to common queries from international and domestic visitors.</p>
+          </div>
+        </div>
+
+        <div style="max-width: 840px;">
+          <!-- FAQ 1: shown to visitors outside Pakistan -->
+          <div class="accordion-item" data-location-content="international">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-ans-1">
+              <span>Do I need a visa to visit Pakistan?</span>
+              <span class="acc-icon">+</span>
+            </button>
+            <div id="faq-ans-1" class="accordion-panel" role="region">
+              Citizens of over 175 countries can easily obtain an official electronic visa online via the government's official portal (<a href="https://visa.nadra.gov.pk" target="_blank" rel="noopener">visa.nadra.gov.pk</a>). Overseas Pakistanis possessing a valid National Identity Card for Overseas Pakistanis (NICOP) or Pakistan Origin Card (POC) can enter Pakistan without a visa.
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-ans-2">
+              <span>What is the best season for the northern areas?</span>
+              <span class="acc-icon">+</span>
+            </button>
+            <div id="faq-ans-2" class="accordion-panel" role="region">
+              May through October is the premier window for Gilgit-Baltistan, Hunza, and Skardu. April offers magnificent spring apricot blossoms across the valleys, while October is renowned for vibrant golden autumn foliage. High mountain passes like Babusar Pass and Deosai Plateau open only between late June and October.
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-ans-3">
+              <span>How should I travel between major cities?</span>
+              <span class="acc-icon">+</span>
+            </button>
+            <div id="faq-ans-3" class="accordion-panel" role="region">
+              Between Lahore, Islamabad, and Multan, the 6-lane modern motorways (M-2 and M-5) provide smooth driving in 3.5 to 4 hours. <span data-location-content="international">Direct domestic flights connect Islamabad, Karachi, and Lahore to northern airports (Gilgit and Skardu). </span>Modern luxury air-conditioned bus services (such as Daewoo and Faisal Movers) also connect all major cities.
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-ans-4">
+              <span>Is English widely spoken?</span>
+              <span class="acc-icon">+</span>
+            </button>
+            <div id="faq-ans-4" class="accordion-panel" role="region">
+              Yes. English is an official language of Pakistan, widely spoken and understood across hotels, airports, restaurants, transport hubs, and by tour guides. Road signs, menus, and official information are routinely printed in both Urdu and English.
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-ans-5">
+              <span>What currency is used and are credit cards accepted?</span>
+              <span class="acc-icon">+</span>
+            </button>
+            <div id="faq-ans-5" class="accordion-panel" role="region">
+              The currency is the Pakistani Rupee (PKR). Major international credit and debit cards (Visa and Mastercard) are accepted in hotels, upscale restaurants, and major stores in cities. However, for travel in northern valleys, local bazaars, and rural guest houses, carrying adequate cash (PKR) is essential as ATM availability is limited outside main towns.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Official Disclaimers & Official Government Resources -->
+    <section id="official-resources" class="section-padding section-warm">
+      <div class="site-container">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+          <h3 style="color: var(--color-primary); margin-bottom: 0.75rem;">Official Government Travel Links</h3>
+          <p style="font-size: 0.95rem; color: var(--color-text); margin-bottom: 1.5rem;">
+            Zameen does not establish travel or legal requirements. Consult official Pakistani government channels for current guidance:
+          </p>
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="https://visa.nadra.gov.pk" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-location-content="international">
+              NADRA Official Visa System (visa.nadra.gov.pk)
+            </a>
+            <a href="https://tourism.gov.pk" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+              Pakistan Tourism Development Corp (PTDC)
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="site-container">
+      <div class="footer-grid">
+        <div>
+          <h3 class="footer-brand-title">Zameen</h3>
+          <p class="footer-desc">
+            An interactive multimedia tourism platform designed to showcase the rich cultural, historical, natural, and recreational heritage of Pakistan to the world.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer-heading">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="explore.html">Explore Destinations</a></li>
+            <li><a href="experiences.html">Tourism Experiences</a></li>
+            <li><a href="festivals.html">Festivals</a></li>
+            <li><a href="travel-guide.html">Travel Guide</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Practical Topics</h4>
+          <ul class="footer-links">
+            <li><a href="#official-resources" data-location-content="international">Visa Portal</a></li>
+            <li><a href="#main-content">Transportation</a></li>
+            <li><a href="#main-content">Accommodation</a></li>
+            <li><a href="#main-content">Cultural Etiquette</a></li>
+            <li><a href="#main-content">Altitude Health</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">CSCU9X5 Project</h4>
+          <p style="font-size: 0.85rem; color: rgba(255,255,255,0.8);">
+            Demonstrating structured information architecture and accessible accordion components for diverse international and domestic audiences.
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 Zameen. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Accordion Interactions
+      const triggers = document.querySelectorAll(".accordion-trigger");
+      triggers.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const isOpen = btn.getAttribute("aria-expanded") === "true";
+          const panel = document.getElementById(btn.getAttribute("aria-controls"));
+          const icon = btn.querySelector(".acc-icon");
+
+          // Toggle current
+          btn.setAttribute("aria-expanded", String(!isOpen));
+          if (panel) {
+            panel.classList.toggle("is-open", !isOpen);
+          }
+          if (icon) {
+            icon.textContent = isOpen ? "+" : "−";
+          }
+        });
+      });
+
+      // 2. Guide Topic Filter Input
+      const topicInput = document.getElementById("guide-filter-input");
+      const topicCards = document.querySelectorAll(".guide-topic-card");
+      if (topicInput) {
+        topicInput.addEventListener("input", (e) => {
+          const q = e.target.value.toLowerCase().trim();
+          topicCards.forEach(card => {
+            const text = (card.textContent + " " + card.dataset.topic).toLowerCase();
+            card.style.display = text.includes(q) ? "flex" : "none";
+          });
+        });
+      }
+
+      // 3. Starting Point Wizard
+      const wizardForm = document.getElementById("wizard-form");
+      const wizardResult = document.getElementById("wizard-result");
+      if (wizardForm && wizardResult) {
+        wizardForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const region = document.getElementById("wizard-region").value;
+          const exp = document.getElementById("wizard-exp").value;
+
+          const matches = DESTINATIONS_DATA.filter(d => d.region === region && d.category === exp);
+          const fallback = DESTINATIONS_DATA.filter(d => d.region === region);
+          const list = matches.length > 0 ? matches : fallback;
+
+          const cardsHtml = list.slice(0, 2).map(d => `                <div style="background: #FFFFFF; color: var(--color-text); padding: 1rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; margin-top: 0.75rem;">
+              <div>
+                <strong style="color: var(--color-primary); font-size: 1.1rem;">${Utils.escapeHTML(d.name)}</strong>
+                <div style="font-size: 0.85rem; color: var(--color-text-muted);">${Utils.escapeHTML(d.province)} &bull; ${Utils.escapeHTML(d.bestTimeToVisit.split('(')[0])}</div>
+              </div>
+              <button type="button" data-destination-placeholder class="btn btn-primary btn-sm" style="color: #fff !important;">View &rarr;</button>
+            </div>
+          `).join("");
+
+          wizardResult.style.display = "block";
+          wizardResult.innerHTML = `
+            <h4 style="color: var(--ase-sand); margin-top: 0;">Suggested Starting Route:</h4>
+            <p style="font-size: 0.95rem; margin-bottom: 0.5rem;">
+              Based on your selection of <strong>${Utils.getRegionLabel(region)}</strong> and <strong>${Utils.getCategoryLabel(exp)}</strong>, here are top recommended starting points:
+            </p>
+            ${cardsHtml}
+            <div style="margin-top: 1rem;">
+              <a href="explore.html?region=${region}&experience=${exp}" style="color: var(--ase-sand); text-decoration: underline; font-weight: bold; font-size: 0.9rem;">
+                Explore all matching destinations in this region &rarr;
+              </a>
+            </div>
+          `;
+        });
+      }
+    });
+  </script>
+</body>
+</html>

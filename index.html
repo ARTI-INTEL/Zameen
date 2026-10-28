@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Zameen — Interactive multimedia tourism platform showcasing cultural, historical, environmental, and recreational destinations across Pakistan." />
+  <title>Zameen</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/zameen-favicon.svg" />
+
+  <!-- W3.CSS Mandatory CSS Framework -->
+  <link rel="stylesheet" href="css/w3.css" />
+
+  <!-- Leaflet Map CSS -->
+  <link rel="stylesheet" href="css/leaflet.css" />
+
+  <!-- Zameen Custom Design System (Extracted palette.ase Colors) -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Global Header & Navigation -->
+  <header class="site-header">
+    <div class="site-container">
+      <div class="site-nav-wrapper">
+        <!-- Logo -->
+        <a href="index.html" class="site-brand" aria-label="Zameen Homepage">
+          <img src="assets/images/zameen-logo.png" alt="Zameen" class="site-brand-logo" />
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav aria-label="Primary Navigation">
+          <ul class="site-nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="explore.html">Explore</a></li>
+            <li><a href="experiences.html">Experiences</a></li>
+            <li><a href="festivals.html">Festivals</a></li>
+            <li><a href="travel-guide.html">Travel Guide</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header Actions: Search & CTA Button -->
+        <div class="site-header-actions">
+          <form class="header-search-form" role="search" aria-label="Site search">
+            <input type="text" class="header-search-input" placeholder="Search destinations..." aria-label="Search destinations" />
+          </form>
+          <a href="explore.html" class="btn-nav-cta">Explore Destinations</a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-nav-toggle" aria-label="Open mobile menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer" aria-label="Mobile Navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="explore.html">Explore Destinations</a></li>
+        <li><a href="experiences.html">Experiences</a></li>
+        <li><a href="festivals.html">Festivals & Celebrations</a></li>
+        <li><a href="travel-guide.html">Travel Guide</a></li>
+      </ul>
+      <div style="margin-top: 1rem;">
+        <form class="header-search-form" style="width: 100%;">
+          <input type="text" class="header-search-input" style="width: 100%;" placeholder="Search destinations..." />
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Page Content -->
+  <main id="main-content">
+    <!-- Hero Editorial Section (Warm Sand + Video Background) -->
+    <section class="hero-editorial section-sand">
+      <!-- Background Video: Zameen intro clip -->
+      <div class="hero-video-bg" aria-hidden="true">
+        <video
+          class="hero-video"
+          autoplay
+          loop
+          muted
+          playsinline
+          preload="metadata"
+          poster="https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?auto=format&fit=crop&w=1200&q=80"
+        >
+          <source src="assets/videos/intro-vid-new.mp4" type="video/mp4" />
+          Your browser does not support HTML5 video.
+        </video>
+      </div>
+      <button class="hero-audio-toggle" type="button" aria-pressed="false" aria-label="Turn video sound on">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M3 9v6h4l5 4V5L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4.03v8.05A4.5 4.5 0 0 0 16.5 12zM14 3.23v2.06a7 7 0 0 1 0 13.42v2.06a9 9 0 0 0 0-17.54z" />
+        </svg>
+        <span>Enable sound</span>
+      </button>
+    </section>
+
+    <!-- Prominent Destination Discovery Interface (Clay) -->
+    <section id="discovery-section" class="discovery-widget-section section-clay">
+      <div class="site-container">
+        <div class="discovery-widget">
+          <form id="homepage-discovery-form" class="discovery-form-grid">
+            <!-- Region Selector -->
+            <div class="form-group">
+              <label for="home-region-select" class="form-label">Destination / Region</label>
+              <select id="home-region-select" class="form-select">
+                <option value="all">All Regions of Pakistan</option>
+                <option value="gilgit-baltistan">Gilgit-Baltistan</option>
+                <option value="khyber-pakhtunkhwa">Khyber Pakhtunkhwa</option>
+                <option value="punjab">Punjab</option>
+                <option value="sindh">Sindh</option>
+                <option value="balochistan">Balochistan</option>
+                <option value="islamabad">Islamabad Capital</option>
+                <option value="azad-kashmir">Azad Kashmir</option>
+              </select>
+            </div>
+
+            <!-- Experience Category Selector -->
+            <div class="form-group">
+              <label for="home-experience-select" class="form-label">Experience Type</label>
+              <select id="home-experience-select" class="form-select">
+                <option value="all">All Experiences</option>
+                <option value="cultural">Culture & Heritage</option>
+                <option value="nature">Nature & Wildlife</option>
+                <option value="adventure">Mountains & Adventure</option>
+                <option value="coastal">Beaches & Coastlines</option>
+                <option value="festivals">Festivals & Sports</option>
+                <option value="recreational">Lakes & Valleys</option>
+              </select>
+            </div>
+
+            <!-- Travel Season Selector -->
+            <div class="form-group">
+              <label for="home-season-select" class="form-label">Travel Season</label>
+              <select id="home-season-select" class="form-select">
+                <option value="all">Any Season</option>
+                <option value="spring">Spring (Mar – May)</option>
+                <option value="summer">Summer (Jun – Aug)</option>
+                <option value="autumn">Autumn (Sep – Nov)</option>
+                <option value="winter">Winter (Dec – Feb)</option>
+              </select>
+            </div>
+
+            <!-- Search Field -->
+            <div class="form-group">
+              <label for="home-search-input" class="form-label">Search Keywords</label>
+              <input type="text" id="home-search-input" class="form-input" placeholder="Where do you want to go?" />
+            </div>
+
+            <!-- Submit Button -->
+            <div>
+              <button type="submit" class="btn btn-primary btn-block" style="height: 44px;">
+                Search Destinations
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Destinations Section (Warm Sand) -->
+    <section class="section-padding section-sand">
+      <div class="site-container">
+        <div class="section-header">
+          <div>
+            <span class="hero-overline">Curated Highlights</span>
+            <h2 class="section-title">Featured Destinations</h2>
+            <p class="section-subtitle">A starter collection of Pakistan's most revered alpine valleys, historical citadels, and cultural hubs.</p>
+          </div>
+          <div>
+            <a href="explore.html" class="btn btn-outline btn-sm">View All Destinations &rarr;</a>
+          </div>
+        </div>
+
+        <div class="destination-grid">
+          <!-- Hunza Valley -->
+          <article class="destination-card">
+            <div class="destination-card-media">
+              <img src="https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?auto=format&fit=crop&w=800&q=80" alt="Hunza Valley landscape" loading="lazy" onerror="Utils.handleImageError(this, 'Hunza Valley')" />
+              <span class="destination-card-badge">Gilgit-Baltistan</span>
+              <span class="destination-card-category">Mountains & Valleys</span>
+            </div>
+            <div class="destination-card-body">
+              <div class="destination-card-province">Gilgit-Baltistan</div>
+              <h3 class="destination-card-title">
+                <button type="button" data-destination-placeholder class="destination-card-title-button">Hunza Valley</button>
+              </h3>
+              <p class="destination-card-desc">Ancient silk-route fortresses, serene glacial lakes, and sweeping vistas of the mighty Karakoram range.</p>
+              <div class="destination-card-meta">
+                <span class="destination-card-season">April &ndash; October</span>
+                <button type="button" data-destination-placeholder class="destination-card-link">View Destination &rarr;</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Skardu -->
+          <article class="destination-card card-theme-clay">
+            <div class="destination-card-media">
+              <img src="https://images.unsplash.com/photo-1586724237569-f3d0c1dee8c6?auto=format&fit=crop&w=800&q=80" alt="Skardu Shangrila Resort Lake" loading="lazy" onerror="Utils.handleImageError(this, 'Skardu')" />
+              <span class="destination-card-badge">Gilgit-Baltistan</span>
+              <span class="destination-card-category">Gateway to K2</span>
+            </div>
+            <div class="destination-card-body">
+              <div class="destination-card-province">Gilgit-Baltistan</div>
+              <h3 class="destination-card-title">
+                <button type="button" data-destination-placeholder class="destination-card-title-button">Skardu & Baltistan</button>
+              </h3>
+              <p class="destination-card-desc">Glacial waters, mystical cold desert dunes, and royal palaces steeped in ancient Tibetan-influenced culture.</p>
+              <div class="destination-card-meta">
+                <span class="destination-card-season">May &ndash; October</span>
+                <button type="button" data-destination-placeholder class="destination-card-link">View Destination &rarr;</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Lahore Walled City -->
+          <article class="destination-card">
+            <div class="destination-card-media">
+              <img src="https://images.unsplash.com/photo-1627894483216-2138af692e32?auto=format&fit=crop&w=800&q=80" alt="Badshahi Mosque domes at dusk" loading="lazy" onerror="Utils.handleImageError(this, 'Lahore')" />
+              <span class="destination-card-badge">Punjab</span>
+              <span class="destination-card-category">Mughal Heritage</span>
+            </div>
+            <div class="destination-card-body">
+              <div class="destination-card-province">Punjab</div>
+              <h3 class="destination-card-title">
+                <button type="button" data-destination-placeholder class="destination-card-title-button">Walled City of Lahore</button>
+              </h3>
+              <p class="destination-card-desc">The cultural heart of Pakistan, featuring Badshahi Mosque, Lahore Fort, rich artisan bazaars, and Punjabi cuisine.</p>
+              <div class="destination-card-meta">
+                <span class="destination-card-season">October &ndash; March</span>
+                <button type="button" data-destination-placeholder class="destination-card-link">View Destination &rarr;</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Swat Valley -->
+          <article class="destination-card card-theme-clay">
+            <div class="destination-card-media">
+              <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80" alt="Swat Valley green mountains" loading="lazy" onerror="Utils.handleImageError(this, 'Swat Valley')" />
+              <span class="destination-card-badge">Khyber Pakhtunkhwa</span>
+              <span class="destination-card-category">Valleys & Skiing</span>
+            </div>
+            <div class="destination-card-body">
+              <div class="destination-card-province">Khyber Pakhtunkhwa</div>
+              <h3 class="destination-card-title">
+                <button type="button" data-destination-placeholder class="destination-card-title-button">Swat Valley & Kalam</button>
+              </h3>
+              <p class="destination-card-desc">Known as the Switzerland of Pakistan: green pine forests, rushing rivers, Malam Jabba ski resort, and Buddhist relics.</p>
+              <div class="destination-card-meta">
+                <span class="destination-card-season">All Year (Summer & Winter)</span>
+                <button type="button" data-destination-placeholder class="destination-card-link">View Destination &rarr;</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Discover by Experience Section (Clay) -->
+    <section class="section-padding section-clay">
+      <div class="site-container">
+        <div class="section-header">
+          <div>
+            <span class="hero-overline">Travel Your Way</span>
+            <h2 class="section-title">Tourism Experiences</h2>
+            <p class="section-subtitle">Organised by what matters most to your travel aspirations and personal pace.</p>
+          </div>
+          <div>
+            <a href="experiences.html" class="btn btn-outline btn-sm">Explore All Experiences &rarr;</a>
+          </div>
+        </div>
+
+        <div class="experience-grid">
+          <!-- 01 Culture & Heritage -->
+          <div class="experience-card">
+            <span class="experience-number">01</span>
+            <h3 class="experience-title">Culture & Heritage</h3>
+            <p class="experience-desc">From 4,500-year-old Indus cities to grand Mughal imperial forts and vibrant Sufi mausoleums.</p>
+            <a href="explore.html?experience=cultural" class="experience-link">Explore category &rarr;</a>
+          </div>
+
+          <!-- 02 Nature & Adventure -->
+          <div class="experience-card is-slate">
+            <span class="experience-number">02</span>
+            <h3 class="experience-title">Nature & Adventure</h3>
+            <p class="experience-desc">Glacial mountain treks, high-altitude alpine plains, rare brown bears, and desert dunes.</p>
+            <a href="explore.html?experience=nature" class="experience-link">Explore category &rarr;</a>
+          </div>
+
+          <!-- 03 Sports & Festivals -->
+          <div class="experience-card">
+            <span class="experience-number">03</span>
+            <h3 class="experience-title">Sports & Festivals</h3>
+            <p class="experience-desc">Free-style polo on the Roof of the World, desert jeep rallies, and ancient Kalash spring celebrations.</p>
+            <a href="festivals.html" class="experience-link">Explore festivals &rarr;</a>
+          </div>
+
+          <!-- 04 Historical Sites & Coastlines -->
+          <div class="experience-card is-slate">
+            <span class="experience-number">04</span>
+            <h3 class="experience-title">Coastlines & Sea</h3>
+            <p class="experience-desc">Dramatic hammerhead peninsulas, secluded desert beaches, and turquoise coral islands along the Arabian Sea.</p>
+            <a href="explore.html?experience=coastal" class="experience-link">Explore coastlines &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Personalised Recommendations (Warm Sand) -->
+    <section class="section-padding section-sand">
+      <div class="site-container">
+        <div class="section-header">
+          <div>
+            <span class="hero-overline">Smart Travel Matching</span>
+            <h2 class="section-title">Personalised Recommendations</h2>
+            <p class="section-subtitle">Tailored suggestions adapting to your travel preferences, seasonal climate, and whether you are travelling domestically or from abroad.</p>
+          </div>
+        </div>
+
+        <div class="recommendation-panel">
+          <!-- Location Awareness Bar -->
+          <div class="location-context-bar">
+            <div id="location-status-text">
+              <strong>Location Context:</strong> General Pakistan tourism recommendations active.
+            </div>
+            <button id="btn-detect-location" class="btn btn-outline btn-sm" type="button">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3A8.994 8.994 0 0013 3.06V1h-2v2.06A8.994 8.994 0 003.06 11H1v2h2.06A8.994 8.994 0 0011 20.94V23h2v-2.06A8.994 8.994 0 0020.94 13H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/>
+              </svg>
+              Detect My Location Context
+            </button>
+          </div>
+
+          <!-- Interactive Filters -->
+          <div class="recommendation-controls">
+            <div class="form-group">
+              <label for="rec-experience" class="form-label">Your Main Interest</label>
+              <select id="rec-experience" class="form-select">
+                <option value="all">Any Experience</option>
+                <option value="cultural" selected>Cultural & Historical Heritage</option>
+                <option value="nature">Nature & Scenic Landscapes</option>
+                <option value="adventure">High Mountain Adventure</option>
+                <option value="coastal">Coastal & Beach Exploration</option>
+                <option value="recreational">Lakes & Restorative Valleys</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="rec-region" class="form-label">Preferred Region</label>
+              <select id="rec-region" class="form-select">
+                <option value="all" selected>Any Region</option>
+                <option value="gilgit-baltistan">Gilgit-Baltistan</option>
+                <option value="punjab">Punjab</option>
+                <option value="sindh">Sindh</option>
+                <option value="khyber-pakhtunkhwa">Khyber Pakhtunkhwa</option>
+                <option value="balochistan">Balochistan</option>
+                <option value="islamabad">Islamabad</option>
+                <option value="azad-kashmir">Azad Kashmir</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="rec-season" class="form-label">When Are You Visiting?</label>
+              <select id="rec-season" class="form-select">
+                <option value="all">Any Season</option>
+                <option value="spring">Spring (Mar–May)</option>
+                <option value="summer">Summer (Jun–Aug)</option>
+                <option value="autumn">Autumn (Sep–Nov)</option>
+                <option value="winter">Winter (Dec–Feb)</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="rec-explanation-banner" style="font-size: 0.95rem; color: var(--color-primary); font-weight: 600; margin-bottom: 1.5rem;">
+            Showing recommendations tailored to your interest in Cultural & Historical Heritage.
+          </div>
+
+          <!-- Dynamic Recommendations Cards Grid -->
+          <div id="home-recommendations-grid" class="destination-grid">
+            <!-- Populated dynamically via recommendations.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- One Country, Countless Journeys — Regional Exploration & Interactive Map Preview (Clay) -->
+    <section class="section-padding section-clay">
+      <div class="site-container">
+        <div class="section-header">
+          <div>
+            <span class="hero-overline">Regional Diversity</span>
+            <h2 class="section-title">One Country, Countless Journeys</h2>
+            <p class="section-subtitle">Seven distinct regions spanning alpine glaciers in the north to the warm waters of the Arabian Sea in the south.</p>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 2rem; align-items: start;">
+          <!-- Interactive Map Container -->
+          <div class="map-container-wrapper">
+            <div id="pakistan-map" style="height: 480px;" aria-label="Interactive map of Pakistan's key tourist destinations"></div>
+            <div class="map-legend-box" style="color: var(--color-primary);">
+              <strong>Interactive Map</strong> &bull; Click any marker to view destination summary and open full details.
+            </div>
+          </div>
+
+          <!-- Regional Quick Links & Stats -->
+          <div style="background: var(--color-surface); color: var(--color-text); padding: 1.75rem; border: 1px solid var(--color-border-dark); border-radius: var(--radius-md);">
+            <h3 style="font-size: 1.35rem; margin-bottom: 1rem; color: var(--color-primary);">Explore by Region</h3>
+            <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 1.25rem;">
+              Select a territory to focus destinations on the interactive map:
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+              <button class="btn btn-outline btn-sm" style="text-align: left; justify-content: space-between; color: var(--color-primary) !important; border-color: var(--color-border-dark);" onclick="PakistanMap.zoomToRegion('gilgit-baltistan')">
+                <span>Gilgit-Baltistan (Karakoram & Peaks)</span>
+                <span>&rarr;</span>
+              </button>
+              <button class="btn btn-outline btn-sm" style="text-align: left; justify-content: space-between; color: var(--color-primary) !important; border-color: var(--color-border-dark);" onclick="PakistanMap.zoomToRegion('khyber-pakhtunkhwa')">
+                <span>Khyber Pakhtunkhwa (Swat & Kalash)</span>
+                <span>&rarr;</span>
+              </button>
+              <button class="btn btn-outline btn-sm" style="text-align: left; justify-content: space-between; color: var(--color-primary) !important; border-color: var(--color-border-dark);" onclick="PakistanMap.zoomToRegion('punjab')">
+                <span>Punjab (Lahore & Multan)</span>
+                <span>&rarr;</span>
+              </button>
+              <button class="btn btn-outline btn-sm" style="text-align: left; justify-content: space-between; color: var(--color-primary) !important; border-color: var(--color-border-dark);" onclick="PakistanMap.zoomToRegion('sindh')">
+                <span>Sindh (Mohenjo-daro & Thatta)</span>
+                <span>&rarr;</span>
+              </button>
+              <button class="btn btn-outline btn-sm" style="text-align: left; justify-content: space-between; color: var(--color-primary) !important; border-color: var(--color-border-dark);" onclick="PakistanMap.zoomToRegion('balochistan')">
+                <span>Balochistan (Hingol & Gwadar)</span>
+                <span>&rarr;</span>
+              </button>
+              <button class="btn btn-outline btn-sm" style="text-align: left; justify-content: space-between; color: var(--color-primary) !important; border-color: var(--color-border-dark);" onclick="PakistanMap.zoomToRegion('islamabad')">
+                <span>Islamabad Capital (Margalla Hills)</span>
+                <span>&rarr;</span>
+              </button>
+              <button class="btn btn-outline btn-sm" style="text-align: left; justify-content: space-between; color: var(--color-primary) !important; border-color: var(--color-border-dark);" onclick="PakistanMap.zoomToRegion('azad-kashmir')">
+                <span>Azad Jammu & Kashmir (Neelum Valley)</span>
+                <span>&rarr;</span>
+              </button>
+            </div>
+            <div style="margin-top: 1.5rem; text-align: center;">
+              <a href="explore.html" class="btn btn-primary btn-block">Open Full Interactive Explorer</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seasonal Recommendations Showcase (Warm Sand) -->
+    <section class="section-padding section-sand">
+      <div class="site-container">
+        <div class="section-header">
+          <div>
+            <span class="hero-overline">Seasonal Climate Guide</span>
+            <h2 class="section-title">Seasonal Travel Highlights</h2>
+            <p class="section-subtitle">Pakistan's vast climate spans alpine tundra to subtropical coasts. Switch seasons to see optimal travel timing.</p>
+          </div>
+          <!-- Season Switcher Tabs -->
+          <div class="view-switch-group" role="tablist" aria-label="Seasonal recommendations">
+            <button class="btn-view-switch" data-season-tab="spring" role="tab">Spring</button>
+            <button class="btn-view-switch" data-season-tab="summer" role="tab">Summer</button>
+            <button class="btn-view-switch" data-season-tab="autumn" role="tab">Autumn</button>
+            <button class="btn-view-switch" data-season-tab="winter" role="tab">Winter</button>
+          </div>
+        </div>
+
+        <!-- Dynamic Cards Grid -->
+        <div id="seasonal-cards-container" class="destination-grid">
+          <!-- Populated by initSeasonalShowcase() in main.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter & Prototype Notice Section (Clay) -->
+    <section class="section-padding section-clay">
+      <div class="site-container">
+        <div style="max-width: 680px; margin: 0 auto; text-align: center;">
+          <h2 style="margin-bottom: 0.75rem; color: #FFFFFF;">Stay Informed on Pakistan Tourism</h2>
+          <p style="color: #FFF5EA; margin-bottom: 1.5rem;">
+            Receive curated seasonal itineraries, festival date announcements, and travel advice.
+          </p>
+
+          <form id="newsletter-form" style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+            <input type="email" placeholder="Enter your email address" required style="padding: 0.75rem 1rem; border: 1px solid var(--color-border-dark); border-radius: var(--radius-sm); width: 320px; font-size: 0.95rem; background: #FFFFFF; color: var(--color-text);" aria-label="Email address" />
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+
+          <p style="font-size: 0.785rem; color: #FFE8CC; margin-top: 1rem;">
+            <strong>Demonstration Notice:</strong> This website is an academic prototype for CSCU9X5. No commercial newsletter service or email storage is implemented.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="site-container">
+      <div class="footer-grid">
+        <!-- Brand & Summary -->
+        <div>
+          <h3 class="footer-brand-title">Zameen</h3>
+          <p class="footer-desc">
+            An interactive multimedia tourism platform designed to showcase the rich cultural, historical, natural, and recreational heritage of Pakistan to the world.
+          </p>
+          <p style="font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-top: 1rem;">
+            CSCU9X5 User Experience Design Assignment 1 Prototype.
+          </p>
+        </div>
+
+        <!-- Exploration Links -->
+        <div>
+          <h4 class="footer-heading">Explore</h4>
+          <ul class="footer-links">
+            <li><a href="explore.html">All Destinations</a></li>
+            <li><a href="explore.html?region=gilgit-baltistan">Gilgit-Baltistan</a></li>
+            <li><a href="explore.html?region=punjab">Punjab & Lahore</a></li>
+            <li><a href="explore.html?region=sindh">Sindh Heritage</a></li>
+            <li><a href="explore.html?region=balochistan">Makran & Balochistan</a></li>
+            <li><a href="explore.html?region=khyber-pakhtunkhwa">Swat & Khyber</a></li>
+          </ul>
+        </div>
+
+        <!-- Experiences & Plan -->
+        <div>
+          <h4 class="footer-heading">Discover</h4>
+          <ul class="footer-links">
+            <li><a href="experiences.html">Tourism Experiences</a></li>
+            <li><a href="festivals.html">Festivals & Celebrations</a></li>
+            <li><a href="travel-guide.html">Travel Guide & Visas</a></li>
+          </ul>
+        </div>
+
+        <!-- Persona Support & Tech Stack -->
+        <div>
+          <h4 class="footer-heading">Designed For</h4>
+          <p style="font-size: 0.825rem; color: rgba(255,255,255,0.8); line-height: 1.5; margin-bottom: 0.75rem;">
+            <strong>Ahmed Khan (Local Resident):</strong> Domestic travel routes & weekend itineraries.<br/>
+            <strong>Sara Ahmed (Overseas Pakistani):</strong> Family holiday planning & cultural return.<br/>
+            <strong>Daniel Weber (International Tourist):</strong> Photography, visas & cultural etiquette.
+          </p>
+          <div style="font-size: 0.75rem; color: var(--ase-sand); margin-top: 0.5rem;">
+            Built with <strong>W3.CSS</strong>, HTML5, CSS3, & Vanilla JavaScript.<br/>
+            Palette extracted from <code>palette.ase</code>.
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Zameen. Developed for CSCU9X5 Assignment 1.
+        </div>
+        <div>
+          <a href="travel-guide.html#official-resources" style="color: rgba(255,255,255,0.85);">Official Visa Resources</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/leaflet.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/recommendations.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Initialize Interactive Map on Homepage
+    document.addEventListener("DOMContentLoaded", () => {
+      PakistanMap.init("pakistan-map", { zoom: 5 });
+
+      // Initialize Personalised Recommendations module on Homepage
+      const updateHomeRecs = () => {
+        const exp = document.getElementById("rec-experience")?.value || "cultural";
+        const reg = document.getElementById("rec-region")?.value || "all";
+        const sea = document.getElementById("rec-season")?.value || "all";
+        const isDom = window.isUserDomestic || false;
+
+        const recData = Recommendations.getRecommendations({
+          experience: exp,
+          region: reg,
+          season: sea,
+          isDomestic: isDom,
+          limit: 4
+        });
+
+        Recommendations.renderRecommendationCards("home-recommendations-grid", recData);
+
+        const banner = document.getElementById("rec-explanation-banner");
+        if (banner) {
+          banner.textContent = recData.explanation;
+        }
+      };
+
+      ["rec-experience", "rec-region", "rec-season"].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener("change", updateHomeRecs);
+      });
+
+      // Location detection button
+      const locBtn = document.getElementById("btn-detect-location");
+      if (locBtn) {
+        locBtn.addEventListener("click", () => {
+          locBtn.disabled = true;
+          locBtn.textContent = "Detecting...";
+          Utils.detectUserLocation((res) => {
+            locBtn.disabled = false;
+            locBtn.innerHTML = `
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3A8.994 8.994 0 0013 3.06V1h-2v2.06A8.994 8.994 0 003.06 11H1v2h2.06A8.994 8.994 0 0011 20.94V23h2v-2.06A8.994 8.994 0 0020.94 13H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/>
+              </svg>
+              Location Checked
+            `;
+            const statusEl = document.getElementById("location-status-text");
+            if (statusEl) {
+              statusEl.innerHTML = `<strong>Location Context:</strong> ${Utils.escapeHTML(res.message)}`;
+            }
+            window.isUserDomestic = res.inPakistan;
+            updateHomeRecs();
+            Utils.showToast(res.message);
+          });
+        });
+      }
+
+      updateHomeRecs();
+    });
+  </script>
+</body>
+</html>

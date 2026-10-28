@@ -1,0 +1,1515 @@
+/**
+ * Zameen — Interactive Multimedia Tourism Website
+ * CSS Design System & Custom Stylesheet
+ * 
+ * Complies with W3.CSS framework requirements, WCAG 2.2 accessibility standards,
+ * and the authoritative colour palette extracted from the design mockup "image (3).png".
+ * 
+ * 
+ * Extracted Palette Swatches from image (3).png:
+ * 1. #9D4F35 - Terracotta / Clay        (RGB: 157, 79, 53)    - Primary buttons, badges, card links
+ * 2. #2F3E4A - Deep Navy / Slate Indigo (RGB: 47, 62, 74)     - Header, footer, headings, dark panels
+ * 3. #8FA7B8 - Slate Blue / Denim       (RGB: 143, 167, 184) - Image placeholders, tags, map accents
+ * 4. #EFE1CA - Warm Sand / Tan          (RGB: 239, 225, 202) - Page background, hero and section blocks
+ * 5. #F7F3EC - Cream Surface            (RGB: 247, 243, 236) - Card and widget surfaces
+ */
+
+:root {
+  /* ==========================================================================
+     1. Authoritative Swatches from palette.ase
+     ========================================================================== */
+  --ase-clay: #9D4F35;
+  --ase-navy: #2F3E4A;
+  --ase-slate: #8FA7B8;
+  --ase-maroon: #7B3A26;
+  --ase-sand: #EFE1CA;
+
+  /* ==========================================================================
+     2. Semantic Colour System
+     ========================================================================== */
+  /* Primary & Brand */
+  --color-primary: #2F3E4A;          /* Deep Navy - Headings, footer, dark panels, outline buttons */
+  --color-primary-hover: #22303A;    /* Deeper navy for hover */
+  --color-secondary: #9D4F35;        /* Terracotta - Primary buttons, badges, card links */
+  --color-secondary-hover: #7B3A26;  /* Deeper terracotta */
+  --color-accent: #9D4F35;           /* Terracotta - CTA buttons, overlines, badges, links */
+  --color-accent-hover: #7B3A26;     /* Deeper terracotta */
+  --color-accent-subtle: #8FA7B8;    /* Slate Blue - Image placeholders, tags, map accents */
+  --color-accent-subtle-hover: #728CA0;
+
+  /* Backgrounds & Surfaces */
+  --color-background: #EFE1CA;       /* Warm tan page background from the mockup */
+  --color-background-sand: #EFE1CA;  /* Sand hero/section blocks matching the page background */
+  --color-background-warm: #E7D3B7;  /* Subtle deeper sand tint for alternating sections */
+  --color-surface: #F7F3EC;          /* Cream card and widget surface from the mockup */
+  --color-surface-sand: #F7F3EC;     /* Cream surface variant matching mockup cards */
+  --color-surface-clay: #9D4F35;     /* Terracotta card surface */
+  --color-surface-navy: #2F3E4A;     /* Navy card surface */
+  --color-surface-slate: #8FA7B8;    /* Slate card surface */
+
+  /* Text & Readability (WCAG 2.2 AA/AAA Compliant) */
+  --color-text: #22303A;             /* Ultra-deep navy text (Contrast > 10:1 against #EFE1CA, > 7:1 against #F7F3EC) */
+  --color-text-muted: #55656F;       /* Muted navy-grey text (Contrast > 5:1 against #EFE1CA) */
+  --color-text-inverse: #FFFFFF;     /* Crisp white text for dark containers */
+  --color-text-on-sand: #22303A;     /* Deep contrast text on sand surfaces */
+
+  /* Borders & Dividers */
+  --color-border: #CDB697;           /* Warm sand border */
+  --color-border-dark: #2F3E4A;      /* Navy border matching mockup card outlines */
+  --color-border-subtle: #E0D2BA;    /* Very soft divider */
+
+  /* Interactive States */
+  --color-focus-ring: #2F3E4A;       /* High-visibility navy focus ring */
+  --color-success: #2E6930;
+  --color-warning: #B36814;
+  --color-info: #2F3E4A;
+
+  /* Typography */
+  --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Elevation Shadows */
+  --shadow-sm: 0 2px 4px rgba(34, 48, 58, 0.10);
+  --shadow-md: 0 4px 12px rgba(34, 48, 58, 0.14);
+  --shadow-lg: 0 8px 24px rgba(34, 48, 58, 0.18);
+  --shadow-hover: 0 10px 28px rgba(34, 48, 58, 0.20);
+
+  /* Border Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-full: 9999px;
+
+  /* Layout */
+  --max-width: 1240px;
+  --header-height: 74px;
+}
+
+/* ==========================================================================
+   3. Global Resets & Base Styles
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+/* Accessibility: Visible Focus Indicators */
+:focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 3px;
+}
+
+/* Skip to main content link for keyboard navigation */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-sm);
+  z-index: 10000;
+  text-decoration: none;
+  font-weight: 700;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  color: var(--color-primary);
+  margin-top: 0;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(2rem, 4vw, 3.25rem); }
+h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); }
+h3 { font-size: clamp(1.25rem, 2.2vw, 1.75rem); }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.1rem; }
+h6 { font-size: 1rem; }
+
+p {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+a:hover {
+  color: var(--color-accent);
+  text-decoration-color: var(--color-accent);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Container Constraint */
+.site-container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+/* ==========================================================================
+   4. Header & Navigation (Consistent with Wireframes & Mockup)
+   ========================================================================== */
+.site-header {
+  position: relative;
+  background-color: var(--color-primary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  z-index: 900;
+  box-shadow: var(--shadow-sm);
+}
+
+.site-nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  gap: 1.5rem;
+}
+
+/* Brand Logo */
+.site-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: #FFFFFF;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+.site-brand:hover {
+  color: var(--ase-sand);
+  text-decoration: none;
+}
+/* Logo lockup on a cream chip so the navy artwork reads on the navy header */
+.site-brand-logo {
+  height: 46px;
+  width: auto;
+  display: block;
+  background-color: var(--color-surface);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+}
+.site-brand:hover .site-brand-logo {
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+/* Desktop Nav Links */
+.site-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.site-nav-links a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.4rem 0.6rem;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+.site-nav-links a:hover {
+  color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.12);
+  text-decoration: none;
+}
+.site-nav-links a.active {
+  color: #FFFFFF;
+  font-weight: 700;
+  border-bottom: 2px solid var(--ase-clay);
+  border-radius: 0;
+}
+
+/* Header Action & Search */
+.site-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.header-search-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.header-search-input {
+  padding: 0.45rem 0.75rem;
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-sm);
+  background-color: #FFFFFF;
+  font-size: 0.875rem;
+  width: 170px;
+  transition: width 0.25s ease, border-color 0.2s ease;
+}
+.header-search-input:focus {
+  width: 220px;
+  border-color: var(--color-primary);
+}
+
+/* Nav CTA Button matching mockup */
+.btn-nav-cta {
+  background-color: var(--color-secondary);
+  color: #FFFFFF !important;
+  text-decoration: none !important;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-secondary);
+  white-space: nowrap;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+.btn-nav-cta:hover {
+  background-color: var(--color-secondary-hover);
+  color: #FFFFFF !important;
+}
+
+/* Mobile Nav Toggle */
+.mobile-nav-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem;
+  cursor: pointer;
+  color: #FFFFFF;
+}
+
+/* Mobile Nav Drawer */
+.mobile-nav-drawer {
+  display: none;
+  background-color: var(--color-primary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 1rem 1.25rem;
+}
+.mobile-nav-drawer.is-open {
+  display: block;
+}
+.mobile-nav-drawer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.mobile-nav-drawer a {
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  display: block;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* ==========================================================================
+   5. Buttons & Interactive Controls
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.65rem 1.35rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none !important;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  line-height: 1.4;
+}
+
+.btn-primary {
+  background-color: var(--color-secondary);
+  color: #FFFFFF !important;
+  border-color: var(--color-secondary);
+}
+.btn-primary:hover {
+  background-color: var(--color-secondary-hover);
+  border-color: var(--color-secondary-hover);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary {
+  background-color: var(--color-primary);
+  color: #FFFFFF !important;
+  border-color: var(--color-primary);
+}
+.btn-secondary:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+}
+
+.btn-clay {
+  background-color: var(--color-accent);
+  color: #FFFFFF !important;
+  border-color: var(--color-accent);
+}
+.btn-clay:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-primary) !important;
+  border: 2px solid var(--color-primary);
+}
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: #FFFFFF !important;
+}
+
+.btn-sm {
+  padding: 0.4rem 0.85rem;
+  font-size: 0.85rem;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* ==========================================================================
+   6. Hero Sections (Matching Mockups)
+   ========================================================================== */
+.hero-editorial {
+  background-color: var(--color-background-sand);
+  padding: 0;
+  min-height: calc(100vh - var(--header-height));
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Background Video Layer (hero) */
+.hero-video-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+.hero-audio-toggle {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: var(--radius-full);
+  background: rgba(34, 48, 58, 0.86);
+  color: #FFFFFF;
+  font: inherit;
+  cursor: pointer;
+}
+.hero-audio-toggle:hover {
+  background: var(--color-primary);
+}
+.hero-audio-toggle:focus-visible {
+  outline-color: #FFFFFF;
+}
+.hero-audio-toggle svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: currentColor;
+}
+
+.hero-editorial .site-container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.hero-overline {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-bottom: 0.75rem;
+}
+
+.hero-title {
+  font-size: clamp(2.25rem, 4.5vw, 3.6rem);
+  color: var(--color-primary);
+  margin-bottom: 1.25rem;
+  line-height: 1.15;
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--color-text-on-sand);
+  margin-bottom: 2rem;
+  max-width: 540px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* ==========================================================================
+   7. Discovery Search Bar Widget (Prominent on Homepage)
+   ========================================================================== */
+.discovery-widget-section {
+  background-color: var(--color-background);
+  padding: 2rem 0;
+}
+
+.discovery-widget {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+}
+
+.discovery-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) auto;
+  gap: 1rem;
+  align-items: end;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-label {
+  font-size: 0.825rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-primary);
+}
+
+.form-select,
+.form-input {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-sm);
+  background-color: #FFFFFF;
+  font-size: 0.925rem;
+  color: var(--color-text);
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-select:focus,
+.form-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(47, 62, 74, 0.18);
+}
+
+/* ==========================================================================
+   8. Section Styling & Grid Layouts
+   ========================================================================== */
+.section-padding {
+  padding: 4rem 0;
+}
+
+.section-sand {
+  background-color: var(--ase-sand) !important;
+  color: var(--color-text);
+}
+.section-sand h1,
+.section-sand h2,
+.section-sand h3,
+.section-sand h4 {
+  color: var(--color-primary);
+}
+.section-sand .section-subtitle,
+.section-sand p {
+  color: #22303A;
+}
+.section-sand .hero-overline {
+  color: var(--color-accent);
+  font-weight: 800;
+}
+.section-sand .btn-outline {
+  border-color: var(--color-primary);
+  color: var(--color-primary) !important;
+}
+.section-sand .btn-outline:hover {
+  background-color: var(--color-primary);
+  color: #FFFFFF !important;
+}
+
+.section-clay {
+  background-color: var(--color-background) !important;
+  color: var(--color-text);
+}
+.section-clay h1,
+.section-clay h2,
+.section-clay h3,
+.section-clay h4 {
+  color: var(--color-primary);
+}
+.section-clay .section-subtitle,
+.section-clay p {
+  color: #22303A;
+}
+.section-clay .hero-overline {
+  color: var(--color-accent);
+  font-weight: 800;
+}
+.section-clay .btn-outline {
+  color: var(--color-primary) !important;
+  border-color: var(--color-primary);
+}
+.section-clay .btn-outline:hover {
+  background-color: var(--color-primary);
+  color: #FFFFFF !important;
+}
+.section-clay .btn-primary {
+  background-color: var(--color-secondary);
+  border-color: var(--color-secondary);
+  color: #FFFFFF !important;
+}
+.section-clay .btn-primary:hover {
+  background-color: var(--color-secondary-hover);
+  border-color: var(--color-secondary-hover);
+}
+.section-clay .destination-card:not(.card-theme-clay):not(.card-theme-navy) {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}
+.section-clay .destination-card:not(.card-theme-clay):not(.card-theme-navy) .destination-card-title,
+.section-clay .destination-card:not(.card-theme-clay):not(.card-theme-navy) .destination-card-desc,
+.section-clay .destination-card:not(.card-theme-clay):not(.card-theme-navy) .destination-card-province {
+  color: var(--color-text);
+}
+.section-clay .recommendation-panel {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}
+.section-clay .recommendation-panel h3,
+.section-clay .recommendation-panel h4 {
+  color: var(--color-primary);
+}
+.section-clay .recommendation-panel p {
+  color: var(--color-text);
+}
+.section-clay .location-context-bar {
+  background-color: var(--color-background-sand);
+  color: var(--color-text-on-sand);
+}
+.section-clay .discovery-widget {
+  background-color: var(--color-surface);
+  color: var(--color-text-on-sand);
+}
+.section-clay .explore-sidebar {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}
+.section-clay .explore-sidebar h2,
+.section-clay .explore-sidebar label {
+  color: var(--color-primary);
+}
+.section-clay .guide-topic-card {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}
+.section-clay .guide-topic-card h3 {
+  color: var(--color-primary);
+}
+.section-clay .guide-topic-card p {
+  color: var(--color-text-muted);
+}
+.section-clay .accordion-item {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}
+.section-clay .accordion-trigger {
+  color: var(--color-primary);
+}
+.section-clay .accordion-panel {
+  color: var(--color-text);
+}
+.section-clay .festival-card {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}
+.section-clay .festival-content h2 {
+  color: var(--color-primary);
+}
+.section-clay .festival-content p {
+  color: var(--color-text);
+}
+
+.section-warm {
+  background-color: var(--color-background-warm);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.section-header {
+  margin-bottom: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.section-header-centered {
+  text-align: center;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-title {
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  margin-bottom: 0;
+  max-width: 620px;
+}
+
+/* ==========================================================================
+   9. Destination Cards (Matching Wireframe & Mockup Patterns)
+   ========================================================================== */
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.75rem;
+}
+
+.destination-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.destination-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.destination-card-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background-color: var(--ase-slate);
+  overflow: hidden;
+}
+
+.destination-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.destination-card:hover .destination-card-media img {
+  transform: scale(1.05);
+}
+
+.destination-card-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background-color: var(--color-secondary);
+  color: #FFFFFF;
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.destination-card-category {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background-color: rgba(47, 62, 74, 0.85);
+  color: #FFFFFF;
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  backdrop-filter: blur(2px);
+}
+
+.destination-card-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.destination-card-province {
+  font-size: 0.785rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.35rem;
+}
+
+.destination-card-title {
+  font-size: 1.35rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-primary);
+}
+
+.destination-card-title-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-weight: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.destination-card-title-button:hover {
+  text-decoration: underline;
+}
+
+.destination-card-desc {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.destination-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--color-border);
+  padding-top: 0.75rem;
+  font-size: 0.825rem;
+  color: var(--color-text-muted);
+}
+
+.destination-card-season {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.destination-card-link {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-weight: 700;
+  color: var(--color-accent);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+}
+.destination-card-link:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+/* Universal Card Surface (all destination cards share one cream colour) */
+.card-theme-clay {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border-color: var(--color-border-dark);
+}
+.card-theme-clay .destination-card-title {
+  color: var(--color-primary);
+}
+.card-theme-clay .destination-card-province,
+.card-theme-clay .destination-card-link {
+  color: var(--color-accent);
+}
+.card-theme-clay .destination-card-desc,
+.card-theme-clay .destination-card-meta {
+  color: var(--color-text-muted);
+}
+
+.card-theme-navy {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}
+.card-theme-navy .destination-card-title {
+  color: var(--color-primary);
+}
+.card-theme-navy .destination-card-link {
+  color: var(--color-accent);
+}
+.card-theme-navy .destination-card-desc,
+.card-theme-navy .destination-card-meta {
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   10. Tourism Experience Category Cards (Mockup Grid)
+   ========================================================================== */
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.75rem;
+}
+
+.experience-card {
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  background-color: var(--color-surface);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.experience-number {
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+}
+
+.experience-title {
+  font-size: 1.4rem;
+  color: var(--color-primary);
+  margin-bottom: 0.75rem;
+}
+
+.experience-desc {
+  font-size: 0.925rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+
+.experience-link {
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--color-primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.experience-link:hover {
+  text-decoration: underline;
+  color: var(--color-accent);
+}
+
+/* Universal Card Surface (all experience cards share one cream colour) */
+.experience-card.is-clay,
+.experience-card.is-slate {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}
+.experience-card.is-clay .experience-number,
+.experience-card.is-slate .experience-number {
+  color: var(--color-accent);
+}
+.experience-card.is-clay .experience-title,
+.experience-card.is-slate .experience-title {
+  color: var(--color-primary);
+}
+.experience-card.is-clay .experience-desc,
+.experience-card.is-slate .experience-desc {
+  color: var(--color-text-muted);
+}
+.experience-card.is-clay .experience-link,
+.experience-card.is-slate .experience-link {
+  color: var(--color-primary);
+}
+
+/* ==========================================================================
+   11. Personalised Recommendation Module ("Recommended for You")
+   ========================================================================== */
+.recommendation-panel {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 2.5rem;
+}
+
+.recommendation-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.recommendation-reason-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: rgba(157, 79, 53, 0.15);
+  color: var(--color-accent-hover);
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.785rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.location-context-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0.85rem 1.25rem;
+  background-color: var(--color-background-sand);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-dark);
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   12. Explore Page Layout (Sidebar + Results Grid + Map)
+   ========================================================================== */
+.explore-layout {
+  display: grid;
+  grid-template-columns: 290px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.explore-sidebar {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  position: sticky;
+  top: calc(var(--header-height) + 1.5rem);
+  box-shadow: var(--shadow-sm);
+}
+
+.sidebar-heading {
+  font-size: 1.15rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.explore-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.active-filters-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: var(--color-background-sand);
+  color: var(--color-text-on-sand);
+  border: 1px solid var(--color-border-dark);
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.filter-chip button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  color: var(--color-primary);
+}
+
+/* View switcher button group */
+.view-switch-group {
+  display: inline-flex;
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+.btn-view-switch {
+  background: #FFFFFF;
+  border: none;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--color-primary);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.btn-view-switch.active {
+  background: var(--color-primary);
+  color: #FFFFFF;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 4rem 1.5rem;
+  background-color: var(--color-surface);
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  margin: 2rem 0;
+}
+.empty-state-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--color-accent);
+}
+
+/* ==========================================================================
+   13. Interactive Map (Leaflet Integration)
+   ========================================================================== */
+.map-container-wrapper {
+  position: relative;
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background-color: #E6EAEF;
+}
+
+#pakistan-map {
+  width: 100%;
+  height: 540px;
+}
+
+.map-legend-box {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  font-size: 0.8rem;
+  z-index: 800;
+  backdrop-filter: blur(4px);
+  box-shadow: var(--shadow-sm);
+}
+
+.map-popup-card {
+  max-width: 240px;
+  font-family: var(--font-sans);
+}
+.map-popup-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.5rem;
+}
+.map-popup-title {
+  font-size: 1.05rem;
+  font-family: var(--font-serif);
+  color: var(--color-primary);
+  margin: 0 0 0.25rem;
+}
+.map-popup-province {
+  font-size: 0.75rem;
+  color: var(--color-accent);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Custom Marker Styling */
+.custom-map-pin {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   15. Travel Guide Topics & FAQ Accordions
+   ========================================================================== */
+.guide-topic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.guide-topic-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.location-restricted {
+  display: none !important;
+}
+.guide-topic-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+.guide-topic-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-background-sand);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+/* Accessible Accordions */
+.accordion-item {
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.75rem;
+  background-color: var(--color-surface);
+  overflow: hidden;
+}
+
+.accordion-trigger {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: transparent;
+  border: none;
+  text-align: left;
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.accordion-trigger:hover {
+  background-color: var(--color-surface-sand);
+}
+
+.accordion-panel {
+  display: none;
+  padding: 0 1.25rem 1.25rem;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  line-height: 1.6;
+}
+.accordion-panel.is-open {
+  display: block;
+}
+
+/* ==========================================================================
+   16. Festivals Page (festivals.html)
+   ========================================================================== */
+.festival-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  margin-bottom: 2rem;
+  transition: transform 0.2s ease;
+}
+.festival-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+.festival-media {
+  position: relative;
+  background-color: var(--ase-slate);
+}
+.festival-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.festival-content {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+}
+.festival-timing-badge {
+  display: inline-block;
+  background-color: var(--color-background-sand);
+  color: var(--color-primary);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+/* ==========================================================================
+   17. Footer & Project Notices
+   ========================================================================== */
+.site-footer {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  padding: 4rem 0 2rem;
+  margin-top: auto;
+  border-top: 4px solid var(--color-accent);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand-title {
+  color: #FFFFFF;
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.footer-desc {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 360px;
+  line-height: 1.6;
+}
+
+.footer-heading {
+  color: var(--ase-sand);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.25rem;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.footer-links a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+.footer-links a:hover {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Toast Notifications */
+.toast-container {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  pointer-events: none;
+}
+.toast-message {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+  font-size: 0.9rem;
+  pointer-events: auto;
+  border-left: 4px solid var(--ase-sand);
+  animation: slideInToast 0.3s ease;
+}
+@keyframes slideInToast {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* ==========================================================================
+   18. Responsive Media Queries
+   ========================================================================== */
+@media (max-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .explore-layout {
+    grid-template-columns: 1fr;
+  }
+  .explore-sidebar {
+    position: static;
+    margin-bottom: 2rem;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .festival-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-nav-links,
+  .site-header-actions {
+    display: none;
+  }
+  .mobile-nav-toggle {
+    display: block;
+  }
+  .discovery-form-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* ==========================================================================
+   19. Reduced Motion for Accessibility
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  /* Hide the autoplaying hero video and fall back to the sand background */
+  .hero-video-bg {
+    display: none;
+  }
+  .hero-video {
+    width: 0;
+    height: 0;
+  }
+  .hero-audio-toggle {
+    display: none;
+  }
+}

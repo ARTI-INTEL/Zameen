@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Zameen by tourism experience: cultural heritage, mountain adventures, coastal wonderlands, wildlife, and vibrant festivals." />
+  <title>Zameen</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/zameen-favicon.svg" />
+
+  <!-- W3.CSS Mandatory CSS Framework -->
+  <link rel="stylesheet" href="css/w3.css" />
+
+  <!-- Zameen Custom Design System -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Global Header & Navigation -->
+  <header class="site-header">
+    <div class="site-container">
+      <div class="site-nav-wrapper">
+        <a href="index.html" class="site-brand" aria-label="Zameen Homepage">
+          <img src="assets/images/zameen-logo.png" alt="Zameen" class="site-brand-logo" />
+        </a>
+
+        <nav aria-label="Primary Navigation">
+          <ul class="site-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="explore.html">Explore</a></li>
+            <li><a href="experiences.html" class="active">Experiences</a></li>
+            <li><a href="festivals.html">Festivals</a></li>
+            <li><a href="travel-guide.html">Travel Guide</a></li>
+          </ul>
+        </nav>
+
+        <div class="site-header-actions">
+          <form class="header-search-form" role="search" aria-label="Site search">
+            <input type="text" class="header-search-input" placeholder="Search destinations..." aria-label="Search destinations" />
+          </form>
+          <a href="explore.html" class="btn-nav-cta">Explore Destinations</a>
+        </div>
+
+        <button class="mobile-nav-toggle" aria-label="Open mobile menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-nav-drawer" aria-label="Mobile Navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="explore.html">Explore Destinations</a></li>
+        <li><a href="experiences.html">Experiences</a></li>
+        <li><a href="festivals.html">Festivals & Celebrations</a></li>
+        <li><a href="travel-guide.html">Travel Guide</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Header Section (Warm Sand) -->
+    <section class="section-padding section-sand" style="padding: 3rem 0;">
+      <div class="site-container">
+        <span class="hero-overline" style="color: var(--color-primary);">Choose Your Journey</span>
+        <h1 class="hero-title">Find Your Experience</h1>
+        <p class="hero-subtitle">Start with what inspires you, then find the places that bring it to life.</p>
+      </div>
+    </section>
+
+    <!-- Experience Categories Grid (Clay) -->
+    <section class="section-padding section-clay">
+      <div class="site-container">
+        <div class="experience-grid">
+
+          <!-- 01 Cultural & Historical -->
+          <article class="experience-card is-clay">
+            <span class="experience-number">EXPERIENCE 01</span>
+            <h2 class="experience-title">Cultural & Historical Tourism</h2>
+            <p class="experience-desc">
+              Uncover 5,000 years of civilization: the ancient brickwork of Bronze Age Mohenjo-daro, Gandharan Buddhist monastic universities at Taxila, the imperial splendours of Lahore Fort and Badshahi Mosque, and the glazed blue tile shrines of Multan.
+            </p>
+            <div style="margin-bottom: 1.25rem;">
+              <strong style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-primary);">Featured Places:</strong>
+              <div style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.25rem;">
+                Lahore Walled City &bull; Mohenjo-daro &bull; Taxila Ruins &bull; Makli Thatta &bull; Multan
+              </div>
+            </div>
+            <a href="explore.html?experience=cultural" class="btn btn-outline" style="margin-top: auto;">
+              Explore Cultural Places &rarr;
+            </a>
+          </article>
+
+          <!-- 02 Nature & Wildlife -->
+          <article class="experience-card is-slate">
+            <span class="experience-number">EXPERIENCE 02</span>
+            <h2 class="experience-title">Nature & Wildlife</h2>
+            <p class="experience-desc">
+              Immerse yourself in exceptional biodiversity: the rolling 4,000m alpine wilderness of Deosai National Park protecting endangered Himalayan brown bears, the turquoise waters of Attabad Lake, and the otherworldly wind-carved desert rock towers of Hingol.
+            </p>
+            <div style="margin-bottom: 1.25rem;">
+              <strong style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-primary);">Featured Places:</strong>
+              <div style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.25rem;">
+                Hunza Valley &bull; Deosai National Park &bull; Neelum Valley &bull; Hingol National Park
+              </div>
+            </div>
+            <a href="explore.html?experience=nature" class="btn btn-outline" style="margin-top: auto;">
+              Explore Nature &rarr;
+            </a>
+          </article>
+
+          <!-- 03 Mountains & Adventure -->
+          <article class="experience-card is-clay">
+            <span class="experience-number">EXPERIENCE 03</span>
+            <h2 class="experience-title">Mountains & Adventure</h2>
+            <p class="experience-desc">
+              Legendary high-altitude expeditions: the gateway to K2 in Skardu, mountain jeep tracks to the foot of Nanga Parbat at Fairy Meadows, the jagged granite spires of the Passu Cones, and winter skiing at Malam Jabba in the Hindu Kush.
+            </p>
+            <div style="margin-bottom: 1.25rem;">
+              <strong style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-primary);">Featured Places:</strong>
+              <div style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.25rem;">
+                Skardu & K2 &bull; Fairy Meadows &bull; Passu Cones &bull; Malam Jabba Ski Resort
+              </div>
+            </div>
+            <a href="explore.html?experience=adventure" class="btn btn-outline" style="margin-top: auto;">
+              Explore Adventure &rarr;
+            </a>
+          </article>
+
+          <!-- 04 Sports & Festivals -->
+          <article class="experience-card is-slate">
+            <span class="experience-number">EXPERIENCE 04</span>
+            <h2 class="experience-title">Sports & Festivals</h2>
+            <p class="experience-desc">
+              Living community celebrations: traditional free-style polo matches played at 3,700m on Shandur Pass, the ancient polytheistic spring dances of the Kalash valleys, national folk crafts at Islamabad's Lok Mela, and intense desert jeep rallies in Cholistan.
+            </p>
+            <div style="margin-bottom: 1.25rem;">
+              <strong style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-primary);">Featured Events:</strong>
+              <div style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.25rem;">
+                Shandur Polo &bull; Chilam Joshi Kalash &bull; Lok Mela &bull; Cholistan Rally
+              </div>
+            </div>
+            <a href="festivals.html" class="btn btn-outline" style="margin-top: auto;">
+              View Festivals Guide &rarr;
+            </a>
+          </article>
+
+          <!-- 05 Recreational Tourism & Valleys -->
+          <article class="experience-card is-clay">
+            <span class="experience-number">EXPERIENCE 05</span>
+            <h2 class="experience-title">Lakes, Valleys & Countryside</h2>
+            <p class="experience-desc">
+              Tranquil escapes and family retreats: lush pine forests and riverside wooden chalets in Kalam and Swat, cool morning hikes through the Margalla Hills of Islamabad, and trout fishing beside roaring Himalayan streams.
+            </p>
+            <div style="margin-bottom: 1.25rem;">
+              <strong style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-primary);">Featured Places:</strong>
+              <div style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.25rem;">
+                Swat Valley &bull; Islamabad Margallas &bull; Mahodand Lake &bull; Neelum Valley
+              </div>
+            </div>
+            <a href="explore.html?experience=recreational" class="btn btn-outline" style="margin-top: auto;">
+              Explore Valleys &rarr;
+            </a>
+          </article>
+
+          <!-- 06 Coastal & Marine Wonders -->
+          <article class="experience-card is-slate">
+            <span class="experience-number">EXPERIENCE 06</span>
+            <h2 class="experience-title">Coastal & Marine Tourism</h2>
+            <p class="experience-desc">
+              Pakistan's wild Arabian Sea coastline: the iconic hammerhead headlands and Omani history of Gwadar, dramatic desert sands meeting turquoise tides at Kund Malir, and scuba diving coral reefs at Astola Island.
+            </p>
+            <div style="margin-bottom: 1.25rem;">
+              <strong style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-primary);">Featured Places:</strong>
+              <div style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.25rem;">
+                Gwadar Peninsula &bull; Kund Malir Beach &bull; Astola Island &bull; Ormara Coast
+              </div>
+            </div>
+            <a href="explore.html?experience=coastal" class="btn btn-outline" style="margin-top: auto;">
+              Explore Coastlines &rarr;
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- "Places Matched to Your Interests" Interactive Showcase (Warm Sand) -->
+    <section class="section-padding section-sand">
+      <div class="site-container">
+        <div class="section-header">
+          <div>
+            <span class="hero-overline">Instant Discovery</span>
+            <h2 class="section-title">Places Matched to Your Interests</h2>
+            <p class="section-subtitle">Click an experience below to instantly view top curated destinations.</p>
+          </div>
+          <!-- Filter Buttons -->
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <button class="btn btn-primary btn-sm active" data-exp-filter="cultural">Cultural</button>
+            <button class="btn btn-outline btn-sm" data-exp-filter="nature">Nature</button>
+            <button class="btn btn-outline btn-sm" data-exp-filter="adventure">Adventure</button>
+            <button class="btn btn-outline btn-sm" data-exp-filter="coastal">Coastal</button>
+          </div>
+        </div>
+
+        <div id="experience-preview-grid" class="destination-grid">
+          <!-- Populated by inline script below -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="site-container">
+      <div class="footer-grid">
+        <div>
+          <h3 class="footer-brand-title">Zameen</h3>
+          <p class="footer-desc">
+            An interactive multimedia tourism platform designed to showcase the rich cultural, historical, natural, and recreational heritage of Pakistan to the world.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer-heading">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="explore.html">Explore Destinations</a></li>
+            <li><a href="experiences.html">Tourism Experiences</a></li>
+            <li><a href="festivals.html">Festivals</a></li>
+            <li><a href="travel-guide.html">Travel Guide</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Experiences</h4>
+          <ul class="footer-links">
+            <li><a href="explore.html?experience=cultural">Cultural Heritage</a></li>
+            <li><a href="explore.html?experience=nature">Nature & Wilderness</a></li>
+            <li><a href="explore.html?experience=adventure">Mountains & Treks</a></li>
+            <li><a href="explore.html?experience=coastal">Coastlines & Beaches</a></li>
+            <li><a href="festivals.html">Traditional Festivals</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">CSCU9X5 Project</h4>
+          <p style="font-size: 0.85rem; color: rgba(255,255,255,0.8);">
+            Demonstrating structured categorization according to persona travel goals. Styled using the authoritative <code>palette.ase</code> color definitions.
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 Zameen. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const filterBtns = document.querySelectorAll("[data-exp-filter]");
+      const previewGrid = document.getElementById("experience-preview-grid");
+
+      function renderPreview(category) {
+        const matches = DESTINATIONS_DATA.filter(d => d.category === category).slice(0, 3);
+        if (!previewGrid) return;
+
+        previewGrid.innerHTML = matches.map((dest, i) => `
+          <article class="destination-card ${i % 2 === 0 ? 'card-theme-clay' : 'card-theme-navy'}">
+            <div class="destination-card-media">
+              <img src="${dest.image}" alt="${Utils.escapeHTML(dest.name)}" loading="lazy" onerror="Utils.handleImageError(this, '${dest.name}')" />
+              <span class="destination-card-badge">${Utils.escapeHTML(dest.province)}</span>
+            </div>
+            <div class="destination-card-body">
+              <h3 class="destination-card-title">
+                <button type="button" data-destination-placeholder class="destination-card-title-button">
+                  ${Utils.escapeHTML(dest.name)}
+                </button>
+              </h3>
+              <p class="destination-card-desc">${Utils.escapeHTML(dest.description)}</p>
+              <div class="destination-card-meta">
+                <span class="destination-card-season">${Utils.escapeHTML(dest.typicalDuration)}</span>
+                <button type="button" data-destination-placeholder class="destination-card-link">View Destination &rarr;</button>
+              </div>
+            </div>
+          </article>
+        `).join("");
+      }
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          filterBtns.forEach(b => {
+            b.classList.remove("btn-primary");
+            b.classList.add("btn-outline");
+          });
+          btn.classList.remove("btn-outline");
+          btn.classList.add("btn-primary");
+          renderPreview(btn.dataset.expFilter);
+        });
+      });
+
+      renderPreview("cultural");
+    });
+  </script>
+</body>
+</html>
